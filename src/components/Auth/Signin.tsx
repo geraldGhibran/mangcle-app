@@ -147,7 +147,7 @@ export const Signin = () => {
       setLoading(true);
       // const { error } = await supabaseClient.auth.signInWithOtp({ email });
       const { error } = await supabaseClient.auth.resetPasswordForEmail(email, {
-        // redirectTo: 'http://localhost:3000/update-password',
+        redirectTo: 'https://mangcle-app.vercel.app//update-password',
       });
       if (error) throw error;
       toast({
@@ -158,9 +158,9 @@ export const Signin = () => {
         duration: 5000,
         isClosable: true
       });
-      setTimeout(() => {
-        navigate('/update-password');
-      }, 1500);
+      // setTimeout(() => {
+        // navigate('/update-password');
+      // }, 1500);
     } catch (error: any) {
       toast({
         title: 'Error',
