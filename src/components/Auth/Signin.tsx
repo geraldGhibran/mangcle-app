@@ -147,7 +147,7 @@ export const Signin = () => {
       setLoading(true);
       // const { error } = await supabaseClient.auth.signInWithOtp({ email });
       const { error } = await supabaseClient.auth.resetPasswordForEmail(email, {
-        redirectTo: 'https://mangcle-app.vercel.app//update-password',
+        redirectTo: 'https://mangcle-app.vercel.app/update-password',
       });
       if (error) throw error;
       toast({
