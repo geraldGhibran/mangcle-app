@@ -8,7 +8,6 @@ import { useAuthStore } from '../../store/auth';
 export const FollowButton2 = ({ followingId, user }: any) => {
   const toast = useToast();
 
-  console.log('Halo dari Follow Button 2', user);
 
   const [followStatus, setFollowStatus] = useState('follow');
 

@@ -23,7 +23,6 @@ const ProfilePage = () => {
 
   const { profile, setProfileGlobal } = useAuthStore();
 
-  console.log("Profile pages",profile);
 
   const fetchProfile = async () => {
     const res: AxiosResponse<ApiDataType> = await getProfileByAuthorEmail(profile?.authorEmail!);

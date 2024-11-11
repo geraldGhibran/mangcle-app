@@ -51,7 +51,6 @@ const PostDetailPage = ({ session }: Props) => {
       postId: post?.id!,
       profileId: post?.profileId!
     };
-    console.log(like);
     return await addLike(like, session?.access_token!);
   };
 

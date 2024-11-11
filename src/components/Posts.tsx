@@ -26,7 +26,7 @@ function Posts({ posts }: any) {
   return (
     <Box bg={useColorModeValue('blue.700', 'gray.700')}>
       <Container maxW={'7xl'} py={16} as={Stack} spacing={12}>
-        {posts.map(({ id, createdAt, title, content, profile, likes, postPicture, comments }: any, i: number) => (
+        {posts?.map(({ id, createdAt, title, content, profile, likes, postPicture, comments }: any, i: number) => (
           <Center key={i} py={6}>
             <Box maxW={'800px'} w={'full'} bg={color} boxShadow={'2xl'} rounded={'md'} p={6} overflow={'hidden'}>
               <Stack>

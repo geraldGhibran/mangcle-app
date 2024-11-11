@@ -191,10 +191,6 @@ export const Signin = () => {
     signInWithDiscord();
   };
 
-  const consoleTwitter = () => {
-    console.log('Login with twitter...');
-  };
-
   const handleCallBack = useCallback((stringFromChild: string) => {
     signInWithSocial(stringFromChild);
   }, []);

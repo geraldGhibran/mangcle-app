@@ -33,19 +33,11 @@ export function ProfileHome() {
   const navigate = useNavigate();
   const fetchPost = async (): Promise<AxiosResponse> => fetchPostsByProfileId(Number(profile?.id));
 
-  const { data, error, isError, isLoading } = useQuery('posts', fetchPost, { enabled: true, retry: 0 });
+  const { data, error, isError, isLoading } = useQuery('postsProfile', fetchPost, { enabled: true, retry: 0 });
 
   // Create a state variable to hold the array
   const [postArray, setPostArray] = useState<any>([]);
 
-  // Update the array variable whenever data changes
-  // useEffect(() => {
-  //   if (data) {
-  //     setPostArray(Array.isArray(data) ? data : [data]);
-  //   }
-  // }, [data]);
-
-  console.log('Halo dari ProfileHome', data?.data);
 
   return (
     <Box margin={'30px'}>
@@ -107,7 +99,7 @@ export function ProfileHome() {
                       <Card bg={useColorModeValue('blue.700', 'gray.700')}>
                         <CardBody>
                           <Box display={'flex'} flexDirection={'column'} gap="20px">
-                            {!data?.data.length ? (
+                            {!data?.data?.length ? (
                               <Box
                                 w={'100%'}
                                 h={'500px'}
@@ -140,7 +132,7 @@ export function ProfileHome() {
                     <Card bg={useColorModeValue('blue.700', 'gray.700')}>
                       <CardBody>
                         <Box display={'flex'} flexDirection={'column'} gap="20px">
-                        {!data?.data.length ? (
+                        {!data?.data?.length ? (
                               <Box
                                 w={'100%'}
                                 h={'500px'}

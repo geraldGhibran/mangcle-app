@@ -12,8 +12,6 @@ export const FollowButton = ({ followingId, user }: any) => {
 
   const { user: session, profileId, setProfileFollowing, setProfileGlobal } = useAuthStore();
 
-  console.log(followingId);
-
   const createFollow = async (): Promise<AxiosResponse> => {
     const post: Omit<IFollow, 'id'> = {
       followerId: profileId!,

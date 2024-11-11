@@ -76,7 +76,6 @@ export function LeftBar() {
         data: { session },
         error
       } = await supabaseClient.auth.getSession();
-      console.log('Halo dari left bar', profileData);
       if (error) throw error;
       if (session) {
         setSession(session);
@@ -129,10 +128,7 @@ export function LeftBar() {
               )}
             </Button>
           ))}
-          <GreenButton
-            bg={useColorModeValue('blue.700', 'blue.500')}
-            mb={'auto'}
-            onClick={() => navigate('/post/new')}>
+          <GreenButton bg={useColorModeValue('blue.700', 'blue.500')} mb={'auto'} onClick={() => navigate('/post/new')}>
             Create Post
           </GreenButton>
           <Box marginTop={'270px'} justifyContent={'flex-start'} display={'flex'} alignItems={'center'} gap={'16px'}>
