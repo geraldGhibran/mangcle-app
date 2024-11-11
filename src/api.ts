@@ -18,6 +18,15 @@ export async function fetchPosts() {
   return data;
 }
 
+export async function fetchPostsByProfileId(id: number): Promise<AxiosResponse> {
+  try {
+    const response: AxiosResponse<ApiDataType> = await axios.get(baseUrl + '/post/byProfileId/' + id);
+    return response;
+  } catch (error: any) {
+    throw new AxiosError(error);
+  }
+}
+
 export const getPost = async (id: number): Promise<AxiosResponse> => {
   const response: AxiosResponse<ApiDataType> = await axios.get(baseUrl + '/post/' + id);
   return response;
@@ -130,4 +139,3 @@ export async function addComment(comment: Omit<IComment, 'id'>, accToken: string
   });
   return response;
 }
-

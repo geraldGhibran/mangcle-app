@@ -1,19 +1,9 @@
 import {
   Box,
-  Button,
   Card,
   CardBody,
-  Checkbox,
   Container,
-  Divider,
-  FormControl,
-  FormLabel,
   Heading,
-  HStack,
-  IconButton,
-  Input,
-  InputGroup,
-  InputRightElement,
   Stack,
   Tab,
   TabList,
@@ -21,23 +11,12 @@ import {
   TabPanels,
   Tabs,
   Text,
-  useColorModeValue,
-  useDisclosure,
-  useToast
+  useColorModeValue
 } from '@chakra-ui/react';
-import { Session, User } from '@supabase/supabase-js';
-import { useCallback, useEffect, useRef, useState } from 'react';
-import { HiEye, HiEyeOff } from 'react-icons/hi';
-import { Navigate, redirect, useNavigate } from 'react-router-dom';
-import { supabaseClient } from '../config/supabase-client';
-import { regex } from '../utils/constants';
-import { Logo } from '../Logo';
-import { OAuthButtonGroup } from '../components/Auth/OAuthButtonGroup';
-import { FollowerListPage } from '../components/FollowerListPage';
+import { Session } from '@supabase/supabase-js';
+import { useEffect, useState } from 'react';
 import { useAuthStore } from '../store/auth';
 import Picture from './Picture';
-import { FollowButton2 } from './FollowButton/FollowButton2';
-import { FollowButton } from './FollowButton';
 
 export const FollowPage = () => {
   const formBackground = useColorModeValue('gray.100', 'gray.700');
@@ -68,7 +47,7 @@ export const FollowPage = () => {
         <Box
           py={{ base: '0', sm: '8' }}
           px={{ base: '4', sm: '10' }}
-          bg={useColorModeValue('green.900', 'gray.900')}
+          bg={useColorModeValue('blue.900', 'gray.900')}
           boxShadow={{ base: 'none', sm: useColorModeValue('md', 'md-dark') }}
           borderRadius={{ base: 'none', sm: 'xl' }}>
           <Tabs align="center" isFitted>
@@ -81,7 +60,7 @@ export const FollowPage = () => {
                 <Stack spacing="6">
                   <Stack spacing="5">
                     <Box margin={'30px'}>
-                      <Card bg={useColorModeValue('green.700', 'gray.700')}>
+                      <Card bg={useColorModeValue('blue.700', 'gray.700')}>
                         <CardBody>
                           <Box display={'flex'} flexDirection={'column'} gap="20px">
                             {!profile?.followers?.length ? (
@@ -131,7 +110,7 @@ export const FollowPage = () => {
                 <Stack spacing="6"></Stack>
                 <Stack spacing="5">
                     <Box margin={'30px'}>
-                      <Card bg={useColorModeValue('green.700', 'gray.700')}>
+                      <Card bg={useColorModeValue('blue.700', 'gray.700')}>
                         <CardBody>
                           <Box display={'flex'} flexDirection={'column'} gap="20px">
                             {!profileFollowing.length ? (

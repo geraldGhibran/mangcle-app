@@ -1,8 +1,8 @@
 import { Button, useToast } from '@chakra-ui/react';
 import { AxiosResponse } from 'axios';
 import { useEffect, useState } from 'react';
-import { useMutation, useQueryClient } from 'react-query';
-import { addFollow, unFollow } from '../../api';
+import { useMutation, useQuery, useQueryClient } from 'react-query';
+import { addFollow, getFollowingCount, getProfileByAuthorEmail, unFollow } from '../../api';
 import { useAuthStore } from '../../store/auth';
 
 export const FollowButton = ({ followingId, user }: any) => {
@@ -10,9 +10,9 @@ export const FollowButton = ({ followingId, user }: any) => {
 
   const [followStatus, setFollowStatus] = useState('follow');
 
-  const { user: session, profileId } = useAuthStore();
+  const { user: session, profileId, setProfileFollowing, setProfileGlobal } = useAuthStore();
 
-  console.log(followingId)
+  console.log(followingId);
 
   const createFollow = async (): Promise<AxiosResponse> => {
     const post: Omit<IFollow, 'id'> = {
@@ -38,6 +38,69 @@ export const FollowButton = ({ followingId, user }: any) => {
 
   const queryClient = useQueryClient();
 
+  const fetchProfileFollowing = async () => {
+    const res: AxiosResponse<ApiDataType> = await getFollowingCount(profileId);
+    return res.data;
+  };
+
+  const fetchProfile = async () => {
+    const res: AxiosResponse<ApiDataType> = await getProfileByAuthorEmail(user?.email!);
+    return res.data;
+  };
+
+  const {
+    data: profileData,
+    error: profileError,
+    isLoading: isFetchingProfile,
+    refetch: refetchProfile
+  } = useQuery(['profileDetail'], fetchProfile, {
+    enabled: false,
+    retry: 2,
+    cacheTime: 0,
+    onSuccess(res: IProfile) {
+      queryClient.invalidateQueries(['profileDetail']);
+      queryClient.invalidateQueries(['profileFollowing']);
+      if (res != null) {
+
+         setProfileGlobal(res);
+      }
+      
+    },
+    onError: (error: any) => {
+      toast({
+        title: 'Error',
+        position: 'top',
+        variant: 'subtle',
+        description: error,
+        status: 'error',
+        duration: 3000,
+        isClosable: true
+      });
+    }
+  });
+
+  const { refetch: refetchProfileFollowing } = useQuery(['profileFollowing'], fetchProfileFollowing, {
+    enabled: false,
+    retry: 0,
+    cacheTime: 0,
+    onSuccess(res: any) {
+      // setPicture(res)
+      setProfileFollowing(res);
+      queryClient.invalidateQueries(['profileFollowing']);
+    },
+    onError: (error: any) => {
+      toast({
+        title: 'Error',
+        position: 'top',
+        variant: 'subtle',
+        description: error,
+        status: 'error',
+        duration: 3000,
+        isClosable: true
+      });
+    }
+  });
+
   const { mutate: postFollow } = useMutation(createFollow, {
     onSuccess(res) {
       toast({
@@ -49,6 +112,8 @@ export const FollowButton = ({ followingId, user }: any) => {
         duration: 3000,
         isClosable: true
       });
+      refetchProfile();
+      refetchProfileFollowing();
       queryClient.invalidateQueries(['profile']);
       queryClient.invalidateQueries(['profileFollowing']);
 
@@ -67,6 +132,9 @@ export const FollowButton = ({ followingId, user }: any) => {
         duration: 3000,
         isClosable: true
       });
+      refetchProfile();
+      refetchProfileFollowing();
+
       queryClient.invalidateQueries(['profile']);
       queryClient.invalidateQueries(['profileFollowing']);
       setTimeout(() => {
@@ -76,8 +144,13 @@ export const FollowButton = ({ followingId, user }: any) => {
   });
 
   useEffect(() => {
+    if (user) {
+      refetchProfileFollowing();
+      refetchProfile();
+
+    }
     checkFollowStatus(user, profileId);
-  }, []);
+  }, [user, refetchProfileFollowing,  refetchProfile, profileId ]);
 
   function handleFollowCallback(): void {
     postUnfollow();

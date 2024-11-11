@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 
 const PostActions = () => {
   return (
-    <Box px={4} bg={useColorModeValue('green.900', 'gray.700')}>
+    <Box px={4} bg={useColorModeValue('blue.900', 'gray.700')}>
       <Flex h={16} alignItems={'center'} justifyContent={'space-between'}>
         <Link to="/post/new">
           <Button

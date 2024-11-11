@@ -12,7 +12,7 @@ export function MyProfile() {
 
   return (
     <Box margin={'30px'}>
-      <Card bg={useColorModeValue('green.700', 'gray.700')}>
+      <Card bg={useColorModeValue('blue.700', 'gray.700')}>
         <CardBody>
           <Text as="h1" color={'white'} fontWeight={'bold'} mb="10px">
             My Profile

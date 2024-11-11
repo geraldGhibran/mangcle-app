@@ -48,7 +48,7 @@ export const App = () => {
       toast({
         position: 'bottom',
         render: () => (
-          <Box color="white" p={3} bg="green.500">
+          <Box color="white" p={3} bg="blue.500">
             {e === 'SIGNED_IN' ? `Signed In` : `Signed Out`}
           </Box>
         )

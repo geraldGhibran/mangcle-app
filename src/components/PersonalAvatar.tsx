@@ -74,7 +74,7 @@ const PersonalAvatar = ({ url, onUpload, disabled }: any) => {
     <>
       <Avatar src={avatarUrl} w={'100px'} h={'100px'} bottom={'-10'} left={'3'} position={'absolute'} size="full" />
       <Box textAlign={'center'} overflow="hidden">
-        <Tooltip isDisabled={!disabled} placement="left" hasArrow label={UPLOAD_PICTURE_DISABLED_TEXT} bg={'green.600'}>
+        <Tooltip isDisabled={!disabled} placement="left" hasArrow label={UPLOAD_PICTURE_DISABLED_TEXT} bg={'blue.600'}>
           <Button
             disabled={disabled}
             size="sm"

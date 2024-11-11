@@ -97,7 +97,7 @@ export function LeftBar() {
   }, [avatar_url]);
 
   return (
-    <Box w={'312.75px'} h={'100vh'} bg={useColorModeValue('green.900', 'gray.900')}>
+    <Box w={'312.75px'} h={'100vh'} bg={useColorModeValue('blue.900', 'gray.900')}>
       <Box marginLeft={'45px'} marginTop={'30px'}>
         <Image src={Logo} w={'135px'} />
         <Box display={'flex'} flexDirection={'column'} marginTop={'40px'} w={'252.75px'} gap={'6px'}>
@@ -130,7 +130,7 @@ export function LeftBar() {
             </Button>
           ))}
           <GreenButton
-            bg={useColorModeValue('green.700', 'blue.500')}
+            bg={useColorModeValue('blue.700', 'blue.500')}
             mb={'auto'}
             onClick={() => navigate('/post/new')}>
             Create Post

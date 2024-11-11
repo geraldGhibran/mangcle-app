@@ -338,8 +338,6 @@ const Profile = () => {
   });
 
   useEffect(() => {
-    console.log('ini dari Profile.tsx line 345', profileId);
-
     if (user) {
       //console.log('user->', user)
       refetchProfile();

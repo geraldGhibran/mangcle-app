@@ -1,4 +1,4 @@
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import {
   Avatar,
   Box,
@@ -20,10 +20,11 @@ import ProfileAvatar from './ProfileAvatar';
 import PostImage from './PostImage';
 
 function Posts({ posts }: any) {
-  const color = useColorModeValue('green.900', 'gray.900');
+  const color = useColorModeValue('blue.900', 'gray.900');
+
 
   return (
-    <Box bg={useColorModeValue('green.700', 'gray.700')}>
+    <Box bg={useColorModeValue('blue.700', 'gray.700')}>
       <Container maxW={'7xl'} py={16} as={Stack} spacing={12}>
         {posts.map(({ id, createdAt, title, content, profile, likes, postPicture, comments }: any, i: number) => (
           <Center key={i} py={6}>

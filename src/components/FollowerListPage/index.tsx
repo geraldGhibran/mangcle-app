@@ -8,7 +8,7 @@ export function FollowerListPage(follower: Follower | undefined) {
 
   return (
     <Box margin={'30px'}>
-      <Card bg={useColorModeValue('green.700', 'gray.700')}>
+      <Card bg={useColorModeValue('blue.700', 'gray.700')}>
         <CardBody>
           {/* <Box display={'flex'} flexDirection={'column'} gap="20px">
              {!follower?.follower?.length ? (

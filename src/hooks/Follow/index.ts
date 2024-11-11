@@ -22,7 +22,6 @@ export const useFollow = () => {
     return await addFollow(post, session?.access_token!);
   };
 
-  console.log("dari follow hook", session?.access_token!)
 
   const { mutate: postFollow } = useMutation(createFollow, {
     onSuccess(res) {

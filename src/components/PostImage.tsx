@@ -27,7 +27,7 @@ const PostImage = ({ url, avatarSize }: PostImageProps) => {
     }
   }
 
-  return <Image height={'200px'} src={postImageUrl} />;
+  return <Image _hover={{ cursor: 'pointer', border: '2px solid #63B3ED' }} width={'100%'} height={'200px'} src={postImageUrl} />;
 };
 
 export default PostImage;

@@ -6,9 +6,9 @@ import { Box, useColorModeValue } from '@chakra-ui/react';
 
 const SearchPage = () => {
   return (
-    <Box display={'flex'} bg={useColorModeValue('green.900', 'gray.900')}>
+    <Box display={'flex'} bg={useColorModeValue('blue.900', 'gray.900')}>
       <LeftBar />
-      <Box bg={useColorModeValue('green.900', 'gray.900')} w={'1061px'} p={'30px'}>
+      <Box bg={useColorModeValue('blue.900', 'gray.900')} w={'1061px'} p={'30px'}>
         <Outlet />
       </Box>
       <RightBar />

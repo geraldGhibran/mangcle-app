@@ -78,6 +78,7 @@ export const Signin = () => {
         provider: 'github'
       });
       if (error) throw error;
+      navigate('/profile');
     } catch (error: any) {
       toast({
         title: 'Error',
@@ -97,6 +98,7 @@ export const Signin = () => {
         provider: 'discord'
       });
       if (error) throw error;
+      navigate('/profile');
     } catch (error: any) {
       toast({
         title: 'Error',
@@ -116,6 +118,7 @@ export const Signin = () => {
         provider: 'google'
       });
       if (error) throw error;
+      navigate('/profile');
     } catch (error: any) {
       toast({
         title: 'Error',
@@ -147,7 +150,7 @@ export const Signin = () => {
       setLoading(true);
       // const { error } = await supabaseClient.auth.signInWithOtp({ email });
       const { error } = await supabaseClient.auth.resetPasswordForEmail(email, {
-        redirectTo: 'https://mangcle-app.vercel.app/update-password',
+        redirectTo: 'https://mangcle-app.vercel.app/update-password'
       });
       if (error) throw error;
       toast({
@@ -159,7 +162,7 @@ export const Signin = () => {
         isClosable: true
       });
       // setTimeout(() => {
-        // navigate('/update-password');
+      // navigate('/update-password');
       // }, 1500);
     } catch (error: any) {
       toast({
@@ -274,7 +277,7 @@ export const Signin = () => {
   }, []);
 
   return (
-    <Container maxW="lg" py={{ base: '12', md: '24' }} px={{ base: '0', sm: '8' }}>
+    <Container maxW="lg" py={{ base: '12', md: '24' }} px={{ base: '0', sm: '8' }} >
       <Stack spacing="8">
         <Stack spacing="6">
           {/* <Logo /> */}

@@ -35,8 +35,8 @@ interface Props {
 }
 
 const PostDetailPage = ({ session }: Props) => {
-  const color = useColorModeValue('green.900', 'gray.900');
-  const color2 = useColorModeValue('gray.700', 'green.900');
+  const color = useColorModeValue('blue.900', 'gray.900');
+  const color2 = useColorModeValue('gray.700', 'blue.900');
   const toast = useToast();
   const [postContent, setPostContent] = useState('');
 
@@ -137,7 +137,7 @@ const PostDetailPage = ({ session }: Props) => {
             <Box maxW={'800px'} w={'full'} bg={color} boxShadow={'2xl'} rounded={'md'} p={6} overflow={'hidden'}>
               <Stack>
                 <Text
-                  color={'green.500'}
+                  color={'blue.500'}
                   textTransform={'uppercase'}
                   fontWeight={800}
                   fontSize={'sm'}

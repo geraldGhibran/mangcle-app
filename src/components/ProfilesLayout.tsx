@@ -4,7 +4,7 @@ import { Box, useColorModeValue } from '@chakra-ui/react';
 
 const ProfilesLayout = () => {
   return (
-    <Box bg={useColorModeValue('green.700', 'gray.700')}>
+    <Box bg={useColorModeValue('blue.700', 'gray.700')}>
       <ProfilesActions />
       <Outlet />
     </Box>

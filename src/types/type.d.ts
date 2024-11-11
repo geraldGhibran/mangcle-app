@@ -125,4 +125,5 @@ interface ProfilePageProps {
 interface ReadMoreButtonProps {
   postId: number;
   commentTotal?: number;
+  onClick?: () => void;
 }

@@ -21,10 +21,10 @@ import { truncate } from '../utils/functions';
 import ProfileAvatar from './ProfileAvatar';
 
 const Profiles = ({ profiles }: any) => {
-  const followColor = useColorModeValue('green.900', 'gray.900');
+  const followColor = useColorModeValue('blue.900', 'gray.900');
 
   return (
-    <Container bg={useColorModeValue('green.700', 'gray.700')} maxW={'7xl'} py={16} as={Stack} spacing={12}>
+    <Container bg={useColorModeValue('blue.700', 'gray.700')} maxW={'7xl'} py={16} as={Stack} spacing={12}>
       <SimpleGrid minChildWidth="120px" spacing="40px" templateColumns="repeat(auto-fill, minmax(400px, 1fr))">
         {profiles.map(({ username, bio, authorEmail, website, picture }: IProfile, i: number) => (
           <Box key={i}>

@@ -148,7 +148,7 @@ const MainNavigation = () => {
 
   return (
     <>
-      <Box bg={useColorModeValue('green.900', 'gray.900')} px={4}>
+      <Box bg={useColorModeValue('blue.900', 'gray.900')} px={4}>
         <Flex h={16} alignItems={'center'} justifyContent={'space-between'}>
           <IconButton
             size={'md'}

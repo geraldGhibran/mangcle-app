@@ -5,7 +5,7 @@ import { FollowerList } from './left-bar/followerList';
 
 export function RightBar() {
   return (
-    <Box w={'422.25px'} h={'100vh'} bg={useColorModeValue('green.900', 'gray.900')}>
+    <Box w={'422.25px'} h={'100vh'} bg={useColorModeValue('blue.900', 'gray.900')}>
       <MyProfile />
 
       <FollowerList />

@@ -199,7 +199,7 @@ const ProfileDetail = ({ childToParent }: Props) => {
     <Container maxW={'7xl'} py={16} as={Stack} spacing={12}>
       <Accordion allowToggle={true}>
         <AccordionItem>
-          <AccordionButton _expanded={{ bgGradient: 'linear(to-r, teal.500, green.500)', color: 'white' }} onClick={() => refetch()}>
+          <AccordionButton _expanded={{ bgGradient: 'linear(to-r, teal.500, blue.500)', color: 'white' }} onClick={() => refetch()}>
             <Box flex='1' textAlign='left'>
               Show profile
             </Box>

@@ -173,7 +173,7 @@ const PostPicture = ({ url, onUpload, disabled }: any) => {
       {/* <ImageViewer src={avatarUrl} /> */}
 
       <Box textAlign={'center'} overflow="hidden">
-        <Tooltip placement="left" hasArrow label={"Click to upload images"} bg={'green.600'}>
+        <Tooltip placement="left" hasArrow label={"Click to upload images"} bg={'blue.600'}>
           <Button
             size="sm"
             flex={1}
